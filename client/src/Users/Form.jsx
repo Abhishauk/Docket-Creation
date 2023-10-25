@@ -10,7 +10,6 @@ function App() {
   const [supplierName, setSupplierName] = useState("");
   const [purchaseOrder, setPurchaseOrder] = useState("");
   const [message, setMessage] = useState("");
-  const [suppliers, setSuppliers] = useState([]);
   const [supplierOptions, setSupplierOptions] = useState([]);
   const [purchaseOrderOptions, setPurchaseOrderOptions] = useState([]);
   const handleSubmit = () => {
@@ -34,7 +33,6 @@ function App() {
         supplierName,
         purchaseOrder
       };
-      console.log("+++++++++", data);
 
       axios({
         method: "post",
@@ -42,10 +40,10 @@ function App() {
         data: data
       })
         .then((response) => {
-          console.log("aaa",response);
+          console.log("aaa", response);
           setMessage("Docket data saved successfully.");
           var form = document.getElementById("myForm");
-          form.reset()
+          form.reset();
           setName("");
           setStartTime("");
           setEndTime("");
@@ -53,12 +51,10 @@ function App() {
           setRatePerHour("");
           setSupplierName("");
           setPurchaseOrder("");
-
         })
         .catch((error) => {
           console.error(error);
           setMessage("An error occurred while saving the docket data.");
-
         });
     }
   };
@@ -75,13 +71,11 @@ function App() {
       });
   }, []);
   const handleSupplierChange = (selectedSupplier) => {
-    console.log("ooooooooo", selectedSupplier);
     setSupplierName(selectedSupplier);
 
     axios
       .get(`http://localhost:5000/purchase-orders?supplier=${selectedSupplier}`)
       .then((response) => {
-        console.log("77777777", response.data);
         setPurchaseOrderOptions(response.data);
       })
       .catch((error) => {

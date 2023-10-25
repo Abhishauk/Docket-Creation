@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define the schema
+
 const orderSchema = new mongoose.Schema({
   RecordType: String,
   PONumber: String,
@@ -27,7 +27,7 @@ const orderSchema = new mongoose.Schema({
   Remarks: String
 });
 
-// Create a Mongoose model
+
 const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Define a schema for the docket
 const docketSchema = new mongoose.Schema({
   name: String,
   startTime: String,
@@ -12,7 +11,6 @@ const docketSchema = new mongoose.Schema({
  
 });
 
-// Create a model based on the schema
 const Docket = mongoose.model('Docket', docketSchema);
 
 module.exports = Docket;
