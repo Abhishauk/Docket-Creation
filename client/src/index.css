@@ -20,7 +20,8 @@
   }
   
   .form {
-    text-align: left;
+    text-align: left; 
+    
   }
   
   .form-group {
@@ -36,23 +37,25 @@
   .form-input {
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid hsl(0, 0%, 80%);
     border-radius: 4px;
   }
   
   
   .form-button {
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-left: 40%;
+    
   }
   
   .form-button:hover {
-    background-color: #0056b3;
+    background-color: rgb(107, 105, 105);
   }
   
   .form-message {
@@ -67,4 +70,24 @@
     justify-content: center;
     background-color: #f3f4f6;
   }
-  
+  .btn{
+    background-color: black;
+    color: white;
+    align-items: center;
+    margin-top: 250px;
+    padding: 20px;
+    font-weight: 600;
+    font-size: medium;
+    border-radius: 10px;
+    
+  }
+  .body{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+   
+    
+  }
+  /* .form-message{
+    color: red;
+  } */

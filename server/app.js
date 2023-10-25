@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const XLSX = require('xlsx');
-const Order =  require('../server/models/order')
+const Order =  require('./models/order')
 const app = express();
 const cors = require('cors'); 
-const Docket = require('../server/models/docket')
+const Docket = require('./models/docket')
 dotenv.config();
 
 
@@ -88,14 +88,23 @@ app.get('/purchase-orders', async (req, res) => {
 app.post('/save-docket', async (req, res) => {
   try {
     const docketData = req.body;
-    console.log("--------",docketData);
+    console.log("--------", docketData);
+  
+    if (!docketData) {
+      throw new Error("Docket data is missing or invalid.");
+    }
+  
     const newDocket = new Docket(docketData);
+  
+    // Assuming newDocket.save() is an asynchronous function that returns a promise
     await newDocket.save();
-
-    res.status(200).json({ message: 'Docket data saved successfully.' });
+  
+    console.log("Data saved successfully.");
+    return res.status(200).json({ message: 'Docket data saved successfully' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while saving the docket data.' });
+    console.error("error",error);
+    return res.status(500).json({ error: 'An error occurred while saving the docket data.' });
   }
+  
 });
 

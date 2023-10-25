@@ -42,11 +42,23 @@ function App() {
         data: data
       })
         .then((response) => {
+          console.log("aaa",response);
           setMessage("Docket data saved successfully.");
+          var form = document.getElementById("myForm");
+          form.reset()
+          setName("");
+          setStartTime("");
+          setEndTime("");
+          setHoursWorked("");
+          setRatePerHour("");
+          setSupplierName("");
+          setPurchaseOrder("");
+
         })
         .catch((error) => {
           console.error(error);
           setMessage("An error occurred while saving the docket data.");
+
         });
     }
   };
@@ -81,7 +93,7 @@ function App() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="form-container">
         <h1 className="form-heading">Create a Docket</h1>
-        <form className="form">
+        <form className="form" id="myForm">
           <div className="form-group">
             <label htmlFor="name" className="form-label">
               Name:
